@@ -1,0 +1,23 @@
+{
+  "name": "githubinvitebot",
+  "version": "1.0.0",
+  "description": "An api for adding people to organization. (Warning don't use this completely public)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nycrera/GitHubInviteBot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nycrera/GitHubInviteBot/issues"
+  },
+  "homepage": "https://github.com/Nycrera/GitHubInviteBot#readme",
+  "dependencies": {
+    "@octokit/rest": "^16.33.0",
+    "express": "^4.17.1"
+  }
+}
