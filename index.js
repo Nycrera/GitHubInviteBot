@@ -11,12 +11,12 @@ const Organization = "organizationName" // Example https://github.com/Cool-Organ
 app.post('/', function (req, res) {
   var type = req.body.type;
   if (type === "mail") {
-    addUserbyMail(req.body.mail);
+    addUserbyMail(req.body.data);
     res.send("ok");
     return;
   }
   if (type === "id") {
-    addUserbyID(req.body.id);
+    addUserbyID(req.body.data);
     res.send("ok");
   }
   res.status(500);
