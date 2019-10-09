@@ -1,7 +1,9 @@
 const express = require('express')
 const app = express()
 const port = 3001
-app.use(express.urlencoded());
+app.use(express.urlencoded({
+  extended: true
+}));
 const Octokit = require("@octokit/rest");
 const Token = "yourAuthToken"; //Check https://github.com/settings/tokens
 const Organization = "organizationName" // Example https://github.com/Cool-Organization -> Cool-Organization
