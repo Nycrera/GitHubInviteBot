@@ -1,11 +1,14 @@
 const express = require('express')
-const app = express()
+const cors = require('cors');
+const app = express();
+var https = require('https');
 const port = 3001
 app.use(express.urlencoded({
   extended: true
 }));
+app.use(cors());
 const Octokit = require("@octokit/rest");
-const Token = "yourAuthToken"; //Check https://github.com/settings/tokens
+const Token = "yourAuthToken"; // Check https://github.com/settings/tokens
 const Organization = "organizationName" // Example https://github.com/Cool-Organization -> Cool-Organization
 
 app.post('/', function (req, res) {
@@ -23,7 +26,13 @@ app.post('/', function (req, res) {
   res.end();
 });
 
-app.listen(port, () => console.log(`Github Organization Invite Bot listening on port ${port}!`))
+https.createServer({
+    key: fs.readFileSync('dir/to/private.key'),
+    cert: fs.readFileSync('dir/to/certificate.crt')
+  }, app)
+  .listen(port, function () {
+    console.log(`Github Organization Invite Bot listening on port ${port}!`)
+  });
 
 function addUserbyID(id) {
   const octokit = new Octokit({
